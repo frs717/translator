@@ -1,4 +1,4 @@
-package ru.tinkoff.translator.yandex_translator_api.dto;
+package ru.tinkoff.translator.service.dto;
 
 import lombok.Data;
 

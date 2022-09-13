@@ -1,12 +1,10 @@
-package ru.tinkoff.translator.yandex_translator_api.dto;
+package ru.tinkoff.translator.service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
