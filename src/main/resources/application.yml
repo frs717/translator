@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    generate-unique-name: false
+    name: translator
+
+translator:
+  yandex:
+    api-key: "<>"
+    api-url: "https://translate.api.cloud.yandex.net/translate/v2/translate"
+    api-folder-id: "<>"
