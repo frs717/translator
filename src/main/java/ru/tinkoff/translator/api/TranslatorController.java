@@ -18,9 +18,11 @@ import javax.validation.Valid;
 @RequestMapping(path = "/api/translator", produces = "application/json")
 @CrossOrigin(origins = "http://localhost:8080")
 public class TranslatorController {
+    private final Translator translator;
 
-    @Autowired
-    private Translator translator;
+    public TranslatorController(Translator translator) {
+        this.translator = translator;
+    }
 
     @PostMapping(path= "/translate")
     public TranslationResponseBody translate(@RequestBody @Valid TranslationRequestBody requestBody) {
