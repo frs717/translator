@@ -82,7 +82,7 @@ public class YandexTranslatorService implements Translator {
         return translatedText;
     }
 
-    private Map<String, String> getTranslations(String sourceLanguage, String targetLanguage, Set<String> uniqueWords) {
+    private synchronized Map<String, String> getTranslations(String sourceLanguage, String targetLanguage, Set<String> uniqueWords) {
         Map<String, String> translations = new HashMap<>();
         List<Callable<Translation>> tasks = new LinkedList<>();
         uniqueWords.forEach(word -> tasks.add(
