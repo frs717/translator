@@ -1,6 +1,8 @@
 package ru.tinkoff.translator.data;
 
-import org.springframework.data.repository.CrudRepository;
+import ru.tinkoff.translator.data.dto.TranslationInfo;
 
-public interface TranslationRepository extends CrudRepository<TranslationInfo, Long> {
+public interface TranslationRepository {
+    TranslationInfo save(TranslationInfo translationInfo);
+
 }

@@ -3,7 +3,6 @@ package ru.tinkoff.translator.api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,16 +22,11 @@ public class TranslatorController {
     @Autowired
     private Translator translator;
 
-    @GetMapping
-    public void test() {
-        //String string = httpServletRequest.getRemoteAddr();
-        //log.info("!!!: {}", string);
-    }
     @PostMapping(path= "/translate")
     public TranslationResponseBody translate(@RequestBody @Valid TranslationRequestBody requestBody) {
-        //String string = httpServletRequest.getRemoteAddr();
-        //log.info("!!!: {}", string);
-        String res = this.translator.translate(requestBody.getSourceLanguage(), requestBody.getTargetLanguage(), requestBody.getText());
+        String res = this.translator.translate(requestBody.getSourceLanguage(),
+                requestBody.getTargetLanguage(), requestBody.getText());
+
         return new TranslationResponseBody(res);
     }
 
