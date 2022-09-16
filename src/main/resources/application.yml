@@ -8,3 +8,6 @@ translator:
     api-key: "<>"
     api-url: "https://translate.api.cloud.yandex.net/translate/v2/translate"
     api-folder-id: "<>"
+    request-limit-in-second: 20
+  api:
+    thread-count: 10
