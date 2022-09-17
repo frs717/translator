@@ -1,5 +1,5 @@
 package ru.tinkoff.translator.service;
 
-public interface Translator {
+public interface TranslatorService {
     String translate(String sourceLanguage, String targetLanguage, String text);
 }

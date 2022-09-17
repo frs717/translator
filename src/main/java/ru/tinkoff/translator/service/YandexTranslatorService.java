@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 @Slf4j
-public class YandexTranslatorService implements Translator {
+public class YandexTranslatorService implements TranslatorService {
     private static final String SPLIT_REGEX = "[\\s,?!;.]+";
     private final HttpServletRequest httpServletRequest;
     private final RequestRepository requestRepository;
@@ -133,6 +133,13 @@ public class YandexTranslatorService implements Translator {
         return delay;
     }
 
+    private void saveTranslations(String sourceLanguage, String targetLanguage, String sourceText,
+                                  String TranslatedText, Map<String, String> translations) {
+
+        RequestInfo requestInfo = saveRequest(sourceLanguage, targetLanguage, sourceText, TranslatedText);
+        saveWords(translations, requestInfo);
+    }
+
     private RequestInfo saveRequest(String sourceLanguage, String targetLanguage, String sourceText, String TranslatedText) {
         RequestInfo requestInfo = new RequestInfo();
         requestInfo.setSourceText(sourceText);
@@ -142,13 +149,6 @@ public class YandexTranslatorService implements Translator {
         requestInfo.setRequestTime(LocalDateTime.now());
         requestInfo.setIp(this.httpServletRequest.getRemoteAddr());
         return this.requestRepository.save(requestInfo);
-    }
-
-    private void saveTranslations(String sourceLanguage, String targetLanguage, String sourceText,
-                                  String TranslatedText, Map<String, String> translations) {
-
-        RequestInfo requestInfo = saveRequest(sourceLanguage, targetLanguage, sourceText, TranslatedText);
-        saveWords(translations, requestInfo);
     }
 
     private void saveWords(Map<String, String> translations, RequestInfo requestInfo) {
