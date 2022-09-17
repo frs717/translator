@@ -36,7 +36,7 @@ docker build -t translator .
 
 ### run:
 ```
-docker run -p <EXTERNAL_PORT>:<INTERNAL_PORT> -t translator -e JAVA_OPTS="-Dtranslator.yandex.api-key=<API_KEY> -Dtranslator.yandex.api-folder-id=<FOLDER_ID>"
+docker run -p <EXTERNAL_PORT>:<INTERNAL_PORT> -e JAVA_OPTS="-Dtranslator.yandex.api-key=<API_KEY> -Dtranslator.yandex.api-folder-id=<FOLDER_ID>" translator
 ```
 - **<EXTERNAL_PORT>** - external app port
 - **<INTERNAL_PORT>** - internal app port
