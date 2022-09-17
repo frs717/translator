@@ -105,7 +105,7 @@ public class YandexTranslatorService implements Translator {
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(this.threadCount);
         List<Future<Translation>> futures = new LinkedList<>();
         int delay = calculateDelay(tasks.size());
-        int time = 0;
+        int time = 60;
         for (Callable<Translation> task : tasks) {
             futures.add(executorService.schedule(task, time, TimeUnit.MILLISECONDS));
             time += delay;
