@@ -15,8 +15,8 @@ POST method
   "text": "String"
 }
 ```
-- **sourceLanguage** - language code of source text (Example, 'en')
-- **targetLanguage** - language code for translation (Example, 'en')
+- **sourceLanguage** - language code of source text (E.g. 'en')
+- **targetLanguage** - language code for translation (E.g. 'en')
 - **text** - text for translation
 
 ### output json:
